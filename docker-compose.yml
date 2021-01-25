@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  webapp:
+    container_name: 'webapp'
+    build: 
+      context: webapp
+      dockerfile: Dockerfile
+    image: 'webapp:0.0.1'
+    depends_on:
+      - api-gw
+
+  api-gw:
+    container_name: 'api-gw'
+    build: 
+      context: api-gateway
+      dockerfile: Dockerfile
+    # build: http://docker-token:Ky9nm5U6FZRQM7MBXus1@git.orange.com.do/ipdev/reverse-proxy.git#tags/v0.0.1
+    image: 'api-gw:0.0.1' 
+    ports:
+      - '80:80'
+
