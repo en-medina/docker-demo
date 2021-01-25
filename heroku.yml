@@ -1,4 +1,3 @@
 build:
   docker:
     webapp: webapp/Dockerfile
-    api-gw: api-gateway/Dockerfile
