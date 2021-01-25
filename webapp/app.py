@@ -1,5 +1,6 @@
 from flask import Flask
 import secrets
+import os
 
 app = Flask(__name__)
 
@@ -13,6 +14,6 @@ if __name__ == '__main__':
 		SECRET_KEY=secrets.token_urlsafe(64),
 		WTF_CSRF_SECRET_KEY=secrets.token_urlsafe(64)
 	))
-
-	#Start web service
-	app.run(debug=False, host='webapp', port = 80)
+	port = os.getenv('PORT', 3000)
+	#Start web serviced
+	app.run(debug=False, host='0.0.0.0', port = port)
